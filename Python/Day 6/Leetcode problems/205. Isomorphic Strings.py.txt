@@ -1,0 +1,16 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        my_dict={}
+        for i in range(len(s)):
+            if s[i] not in my_dict:
+                my_dict[s[i]]= set()
+            my_dict[s[i]].add(t[i])
+        for key,value in my_dict.items():
+            if len(value)>1 :
+                return False
+            for k,i in my_dict.items():
+                if i == value and key!=k:
+                    return False
+
+        return True
+
